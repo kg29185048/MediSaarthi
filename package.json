@@ -9,10 +9,11 @@
   "main": "index.js",
   "type": "module",
   "devDependencies": {
-    "nodemon": "^3.1.10"
+    "nodemon": "^3.1.10",
+    "prettier": "^3.6.2"
   },
   "scripts": {
-    "dev":"nodemon src/index.js",
+    "dev": "nodemon src/index.js",
     "start": "node index.js"
   },
   "author": "TheErrorComapany",
