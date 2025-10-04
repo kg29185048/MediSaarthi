@@ -11,4 +11,4 @@ const doseLogSchema = new mongoose.Schema(
   { timestamps: true }
 );
 
-export default mongoose.model("DoseLog", doseLogSchema);
+export const DoseLog = mongoose.model("DoseLog", doseLogSchema);

@@ -10,4 +10,4 @@ const chatbotQuerySchema = new mongoose.Schema(
   { timestamps: true }
 );
 
-export default mongoose.model("Chatbot", chatbotQuerySchema);
+export const Chatbot = mongoose.model("Chatbot", chatbotQuerySchema);

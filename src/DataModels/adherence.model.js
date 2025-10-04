@@ -14,4 +14,4 @@ const adherenceSchema = new mongoose.Schema(
   { timestamps: true }
 );
 
-export default mongoose.model("Adherence", adherenceSchema);
+export const Adherence = mongoose.model("Adherence", adherenceSchema);

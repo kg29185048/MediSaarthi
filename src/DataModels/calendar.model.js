@@ -11,4 +11,4 @@ const calendarEventSchema = new mongoose.Schema(
   { timestamps: true }
 );
 
-export default mongoose.model("Calendar", calendarEventSchema);
+export const Calendar = mongoose.model("Calendar", calendarEventSchema);

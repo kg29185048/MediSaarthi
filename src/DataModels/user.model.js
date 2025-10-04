@@ -8,6 +8,7 @@ const userSchema = new mongoose.Schema(
     name: { type: String, required: true},
     email: { type: String, required: true, unique: true, lowercase: true, unique: true },
     password: { type: String, required:[true,"Password is Required"]},
+    coverImage: {type: String},
     timezone: { type: String, default: "UTC" },
     reminderType: { type: String, enum: ["email", "browser"], default: "email" },
     preferences: { type: Object, default: {} },
@@ -19,7 +20,7 @@ const userSchema = new mongoose.Schema(
 userSchema.pre("save", async function(next) {  //before doing some action pre does processing based on given function
   if(this.isModified("password")) return next();
 
-  this.password = bcrypt.hash(this.password,10); //10 hashes rounds
+  this.password = await bcrypt.hash(this.password,10); //10 hashes rounds
   next(); // calling next to give update to next method
 })
 // before exporting check if pass is correct
@@ -50,4 +51,4 @@ userSchema.methods.generateRefereshTokens = function (){
     ) 
 }
 
-export default mongoose.model("User", userSchema);
+export const User =  mongoose.model("User", userSchema);
