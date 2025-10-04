@@ -15,21 +15,17 @@ const registerUser = asyncCreator(async (req,res)=>{
 
     const {name,email,password,timezone,remainderType} = req.body;
 
-    if(name===""){
-        throw new errorHandler(400,"name is required");
-    }
-    if(email===""){
-        throw new errorHandler(400,"email is required");
-    }
-    if(password===""){
-        throw new errorHandler(400,"password is required");
-    }
+    if (!name) throw new errorHandler(400, "Name is required");
+    if (!email) throw new errorHandler(400, "Email is required");
+    if (!password) throw new errorHandler(400, "Password is required");
 
-    const existedUser = User.findOne({email});
+    const existedUser = await User.findOne({email});
     if(existedUser) throw new errorHandler(409,"User already exists...Please Log In");
 
-    const coverImagelocalpath = req.files?.coverImage[0]?.path;
-    const coverImage = await uploadOnCloudinary(coverImagelocalpath);
+    let coverImage = { url: "" };
+    if (req.files?.coverImage?.[0]?.path) {
+        coverImage = await uploadOnCloudinary(req.files.coverImage[0].path);
+    }
 
     const user  = await User.create({
         name,
