@@ -1,7 +1,6 @@
 import mongoose from "mongoose";
 import bcrypt from "bcrypt";
 import jwt from "jsonwebtoken"; //jwt is a bearer token ---key
-import { use } from "react";
 
 const userSchema = new mongoose.Schema(
   {
@@ -51,4 +50,4 @@ userSchema.methods.generateRefereshTokens = function (){
     ) 
 }
 
-export const User =  mongoose.model("User", userSchema);
+export default mongoose.model("User", userSchema);

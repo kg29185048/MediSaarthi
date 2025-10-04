@@ -38,7 +38,7 @@ const registerUser = asyncCreator(async (req,res)=>{
     const isCreated = await User.findById(user._id).select("-password -refreshToken");
     if(!isCreated) throw new errorHandler(500,"something went wrong while creating user");
 
-    return res.status(201).json( new resHandler(200 , isCreated , "User registered successfully"));
+    return res.status(201).json( new resHandler(201 , isCreated , "User registered successfully"));
 
 })
 

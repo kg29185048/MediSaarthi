@@ -16,4 +16,4 @@ class errorHandler extends Error{
     }
 }
 
-export {errorHandler};
+export default errorHandler;
