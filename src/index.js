@@ -1,25 +1,9 @@
 import dotenv from 'dotenv';
 import connectDB from './db/index.js';
 import app from './app.js';
-import cookieParser from 'cookie-parser';
-import cors from "cors";
-import express, { urlencoded } from 'express';
+
 
 dotenv.config({path: './.env'});
-//preparing backend to collect data 
-app.use(cors({
-    origin: process.env.CORS_ORIGIN, //for cross origin request handling 
-    credentials: true,
-}));
-app.use(express.json({
-    limit:"20kb",
-}));
-app.use(urlencoded({
-    extended: true,
-    limit: "16kb",
-}));
-app.use(express.static("public"));
-app.use(cookieParser());
 
 //connecting db
 connectDB()
