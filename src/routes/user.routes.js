@@ -1,6 +1,7 @@
 import { Router } from "express";
-import { registerUser } from "../controllers/user.controller.js";
+import { registerUser,loginUser, logoutUser } from "../controllers/user.controller.js";
 import {upload} from "../middleware/multer.middleware.js"
+import verifyJWT from "../middleware/auth.middleware.js"
 
 const router = Router();
 
@@ -15,5 +16,10 @@ router.route("/register").post(
     ),
     registerUser
 )
+
+router.route("/signin").post(loginUser)
+
+//secured routes
+router.route("/logout").post(verifyJWT , logoutUser) //that's how you use middleware // before logout we are checking if he logged in or not
 
 export default router;
