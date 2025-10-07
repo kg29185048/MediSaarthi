@@ -3,15 +3,15 @@ import errorHandler from "../utils/errorHandler.js"
 import User from "../DataModels/user.model.js";
 import { resHandler } from "../utils/resHandler.js";
 
-const generateAccessAndRefereshTokens = async (userid)=>{
+const generateAccessAndRefreshTokens = async (userid)=>{
     try {
         const user = await User.findById(userid)
         const accessToken = user.generateAccessTokens()
-        const refereshtoken = user.generateRefereshTokens()
-        user.refreshToken = refereshtoken;
+        const refreshtoken = user.generateRefreshTokens()
+        user.refreshToken = refreshtoken;
         await user.save({validateBeforeSave:false})
 
-        return {accessToken,refereshtoken};
+        return {accessToken,refreshtoken};
     } catch (error) {
         throw new errorHandler(500,"Something went wrong while generating referesh and access tokens")
     }
@@ -66,31 +66,33 @@ const loginUser = asyncCreator(async (req,res)=>{
     //send response or redirect
 
     const {email,password} = req.body;
-    if(!email){
+    const emailTrimmed = email?.trim().toLowerCase();
+    if(!emailTrimmed){
         throw new errorHandler(400,"enter your email id")
     }
-    const ifUser = await User.findOne({email})
-    if(!ifUser) throw new errorHandler(400,"user does not exists! please register")
+    const ifUser = await User.findOne({ email: emailTrimmed });
+    if(!ifUser) throw new errorHandler(404,"user does not exists! please register")
     
     const isValid  = await ifUser.isPassCorrect(password)
-    if(!isValid) throw new errorHandler(400,"Please enter correct password")
+    if(!isValid) throw new errorHandler(401,"Please enter correct password")
     
-    const {accessToken, refereshtoken} = generateAccessAndRefereshTokens(ifUser._id);
+    const {accessToken, refreshtoken} = await generateAccessAndRefreshTokens(ifUser._id);
 
     const loggedInUser = await User.findById(ifUser._id).select("-password -refreshToken");
     const option = {
         httpOnly: true,
-        secure: true,
+        secure: process.env.NODE_ENV === "production",
+        sameSite: "lax", 
     }
 
     return res
     .status(200)
     .cookie("accessToken",accessToken,option)
-    .cookie("refreshToken",refereshtoken,option)
+    .cookie("refreshToken",refreshtoken,option)
     .json(
         new resHandler(200,
             {
-                user: loggedInUser,refereshtoken,accessToken
+                user: loggedInUser,refreshtoken,accessToken
             },
             "User logged in successfully"
         )

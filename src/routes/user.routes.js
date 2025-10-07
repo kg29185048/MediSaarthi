@@ -5,17 +5,21 @@ import verifyJWT from "../middleware/auth.middleware.js"
 
 const router = Router();
 
-router.route("/register").post(
-    upload.fields( //multer middleware for file handling
-        [
-            {
-                name: "coverImage",
-                maxCount: 1,
-            }
-        ] 
-    ),
-    registerUser
-)
+// router.route("/register").post(
+//     upload.fields( //multer middleware for file handling
+//         [
+//             {
+//                 name: "coverImage",
+//                 maxCount: 1,
+//             }
+//         ] 
+//     ),
+//     registerUser
+// )
+
+router.route("/me").get(verifyJWT, (req, res) => {
+  res.status(200).json({ user: req.user });
+});
 
 router.route("/signin").post(loginUser)
 

@@ -5,7 +5,7 @@ import jwt from "jsonwebtoken"; //jwt is a bearer token ---key
 const userSchema = new mongoose.Schema(
   {
     name: { type: String, required: true},
-    email: { type: String, required: true, unique: true, lowercase: true, unique: true },
+    email: { type: String, required: true, unique: true, lowercase: true },
     password: { type: String, required:[true,"Password is Required"]},
     coverImage: {type: String},
     timezone: { type: String, default: "UTC" },
@@ -16,12 +16,13 @@ const userSchema = new mongoose.Schema(
   { timestamps: true }
 );
 
-userSchema.pre("save", async function(next) {  //before doing some action pre does processing based on given function
-  if(this.isModified("password")) return next();
+userSchema.pre("save", async function (next) {
+    if(!this.isModified("password")) return next();
 
-  this.password = await bcrypt.hash(this.password,10); //10 hashes rounds
-  next(); // calling next to give update to next method
+    this.password = await bcrypt.hash(this.password, 10)
+    next()
 })
+
 // before exporting check if pass is correct
 userSchema.methods.isPassCorrect = async function(password) {
   return await bcrypt.compare(password,this.password);
@@ -39,13 +40,13 @@ userSchema.methods.generateAccessTokens = function (){
       }
     )
 }
-userSchema.methods.generateRefereshTokens = function (){
+userSchema.methods.generateRefreshTokens = function (){
     return jwt.sign({
         _id: this._id,
     },
-      process.env.REFERESH_TOKEN_SECRET,
+      process.env.REFRESH_TOKEN_SECRET,
       {
-        expiresIn: process.env.REFERESH_TOKEN_EXPIRY
+        expiresIn: process.env.REFRESH_TOKEN_EXPIRY
       }
     ) 
 }

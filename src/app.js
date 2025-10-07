@@ -6,14 +6,11 @@ const app = express();
 
 //preparing backend to collect data 
 app.use(cors({
-    origin: process.env.CORS_ORIGIN, //for cross origin request handling 
+    origin: "http://localhost:5173", //for cross origin request handling 
     credentials: true,
 }));
-app.use(express.json({
-    limit:"20kb",
-}));
+app.use(express.json());
 app.use(urlencoded({
-    extended: true,
     limit: "16kb",
 }));
 app.use(express.static("public"));
