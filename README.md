@@ -1,15 +1,15 @@
-# Alchemist’s Grand Grimoire – Smart Medication Tracker
+# MEDISAARTHI
 
-> “As the circus's Alchemist of the Arena, you brew the vital potions and elixirs that keep your performers safe and strong.”
+> “Just as Krishna guided Arjun in the Mahabharat, Medisaarthi becomes your charioteer in the battlefield of health, reminding you of every medicine and steering you toward well-being.
+MediSaathi is a smart web app that helps users manage their medication schedules effortlessly. It logs medicine details, sends timely reminders, and tracks taken vs. missed doses through an intuitive dashboard. With AI-powered predictions, proactive alerts, a chatbot health assistant, and Google Calendar integration, it ensures you never miss a dose and stay in control of your health.”
 
-But the performers keep forgetting their complex dosage schedules — risking their health and the entire show!  
-Your mission: **Build the Grand Grimoire**, a magical tool that ensures no dose is ever missed.  
+
 
 ---
 
 ## Overview
 
-**Alchemist’s Grand Grimoire** is an AI-powered web app that helps users manage and adhere to their medication schedules with predictive reminders, chat-based assistance, and seamless Google Calendar integration.
+**MEDISAARTHI** is an AI-powered web app that helps users manage and adhere to their medication schedules with predictive reminders, chat-based assistance, and seamless Google Calendar integration.
 
 It provides a **gamified experience** where users become the Alchemist maintaining everyone’s wellness!
 
