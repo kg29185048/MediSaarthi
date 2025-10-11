@@ -1,0 +1,62 @@
+body {
+  background: linear-gradient(to bottom, #ffffff 0%, #f0f4f8 100%);
+  font-family: 'Inter', sans-serif;
+}
+
+.main-title {
+  font-size: 2.5rem;
+  font-weight: 800;
+  color: #2d3436;
+}
+
+.medicine-card {
+  background: #fff;
+  border: 1px solid #e8ecef;
+  border-radius: 20px;
+  box-shadow: 0 4px 20px rgba(0,0,0,0.08);
+  transition: all 0.3s ease;
+  overflow: hidden;
+  height: 100%;
+}
+
+.medicine-card:hover {
+  transform: translateY(-5px);
+  box-shadow: 0 8px 30px rgba(102,126,234,0.15);
+}
+
+.card-header {
+  background: linear-gradient(135deg, #667eea 0%, #764ba2 100%);
+  color: white;
+  font-weight: 700;
+  border: none;
+  padding: 1rem 1.5rem;
+}
+
+.card-body {
+  padding: 1.5rem;
+}
+
+.btn-primary {
+  background: linear-gradient(135deg, #667eea, #764ba2);
+  border: none;
+  border-radius: 50px;
+  font-weight: 600;
+}
+
+.btn-success {
+  background: linear-gradient(135deg, #00b894, #00cec9);
+  border: none;
+  border-radius: 50px;
+  font-weight: 600;
+}
+
+.btn-danger {
+  background: linear-gradient(135deg, #ff7675, #d63031);
+  border: none;
+  font-weight: 600;
+  border-radius: 8px;
+}
+
+.linked {
+  color: #00b894;
+}
