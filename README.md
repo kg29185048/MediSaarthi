@@ -54,17 +54,11 @@ It provides a **gamified experience** where users become the Alchemist maintaini
 
 | Layer | Technology |
 |-------|-------------|
-| **Frontend** | React.js, Tailwind CSS |
+| **Frontend** | HTML, JavaScript, React.js, Tailwind CSS, BootStrap  |
 | **Backend** | Node.js, Express.js |
 | **Database** | MongoDB |
-| **AI / Chatbot** | OpenAI API |
+| **Chatbot** | Gemini API |
 | **Calendar Integration** | Google Calendar API |
-| **Notifications** | Web Push API, EmailJS |
+| **Notifications** | Web Push API, NodeMailer |
 
----
-
-## 📊 Wellness Dashboard
-
-- Displays real-time adherence rate
-- upcoming doses and log of doses
 
