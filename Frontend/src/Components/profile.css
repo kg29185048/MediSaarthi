@@ -1,0 +1,90 @@
+/* ----------- Form Layout Fix ----------- */
+.profile-form .row {
+  margin: 0; 
+}
+
+.profile-form .col-12,
+.profile-form .col-md-6 {
+  padding: 0 2px; 
+  margin-bottom: 1rem; /* vertical spacing between rows */
+}
+
+.form-label {
+  font-weight: 600;
+  color: #4b5563;
+  margin-bottom: 6px;
+  font-size: 0.9rem;
+}
+
+/* Input boxes */
+.form-control,
+.form-select {
+  width: 100%;
+  padding: 10px 14px;
+  height: 44px;
+  border-radius: 10px;
+  border: 1px solid #e5e7eb;
+  background-color: #fafafa;
+  transition: border-color 0.2s, box-shadow 0.2s;
+  font-size: 0.95rem;
+}
+
+.form-control:focus,
+.form-select:focus {
+  background-color: #fff;
+  border-color: #5b7cff;
+  box-shadow: 0 0 0 3px rgba(91, 124, 255, 0.15);
+  outline: none;
+}
+
+.form-control[disabled],
+.form-control[readonly] {
+  background-color: #f8fafc;
+  border-color: #e5e7eb;
+  color: #6b7280;
+}
+
+/* Buttons */
+.btn-edit {
+  background: linear-gradient(135deg, #667eea, #764ba2);
+  color: white;
+  border: none;
+  padding: 8px 18px;
+  border-radius: 50px;
+  font-weight: 600;
+  transition: all 0.3s ease;
+}
+
+.btn-edit:hover {
+  transform: translateY(-2px);
+  box-shadow: 0 6px 20px rgba(102, 126, 234, 0.2);
+}
+
+.btn-save {
+  background: linear-gradient(135deg, #00b894, #00cec9);
+  color: white;
+  border: none;
+  padding: 10px 22px;
+  border-radius: 50px;
+  font-weight: 600;
+  transition: all 0.3s ease;
+}
+
+.btn-save:hover {
+  transform: translateY(-2px);
+  box-shadow: 0 6px 20px rgba(0, 184, 148, 0.25);
+}
+
+/* Responsive Fix */
+@media (max-width: 768px) {
+  .profile-form .col-md-6 {
+    width: 100%;
+    padding: 0;
+  }
+
+  .btn-save,
+  .btn-edit {
+    width: 100%;
+    justify-content: center;
+  }
+}

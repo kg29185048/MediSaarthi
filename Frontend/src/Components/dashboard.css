@@ -1,0 +1,293 @@
+@import url('https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600;700;800&display=swap');
+    
+    * {
+            margin: 0;
+            padding: 0;
+            box-sizing: border-box;
+        }
+
+body {
+    margin: 0; 
+    padding: 0;
+    
+    background: linear-gradient(to bottom, #ffffff 0%, #f0f4f8 100%);
+    font-family: 'Inter', sans-serif;
+    min-height: 100vh;
+}
+    
+
+    .container {
+      max-width: 1200px;
+    }
+    
+    .dashboard-header {
+      display: flex;
+      justify-content: space-between;
+      align-items: center;
+      flex-wrap: wrap;
+      margin-bottom: 30px;
+      gap: 20px;
+    }
+    
+    .dashboard-header h1 {
+      font-weight: 800;
+      color: #2d3436;
+      font-size: 2.5rem;
+      text-shadow: none;
+      margin: 0;
+    }
+    
+    .btn-add {
+      background: linear-gradient(135deg, #f093fb 0%, #f5576c 100%);
+      color: white;
+      border: none;
+      padding: 14px 30px;
+      border-radius: 50px;
+      font-weight: 600;
+      font-size: 1rem;
+      box-shadow: 0 8px 20px rgba(245, 87, 108, 0.3);
+      transition: all 0.3s ease;
+    }
+    
+    .btn-add:hover {
+      transform: translateY(-2px);
+      box-shadow: 0 12px 30px rgba(245, 87, 108, 0.4);
+      color: white;
+    }
+    
+    .info-banner {
+      background: #fff;
+      backdrop-filter: blur(10px);
+      border: 1px solid #ffd6d6;
+      border-left: 5px solid #f5576c;
+      padding: 20px 25px;
+      border-radius: 16px;
+      margin-bottom: 30px;
+      box-shadow: 0 4px 15px rgba(245, 87, 108, 0.08);
+      animation: slideIn 0.5s ease;
+    }
+    
+    @keyframes slideIn {
+      from {
+        opacity: 0;
+        transform: translateY(-20px);
+      }
+      to {
+        opacity: 1;
+        transform: translateY(0);
+      }
+    }
+    
+    .info-banner strong {
+      color: #f5576c;
+      font-weight: 700;
+    }
+    
+    .info-banner .bi {
+      font-size: 1.3rem;
+      vertical-align: middle;
+      margin-right: 8px;
+    }
+    
+    .card {
+      background: #ffffff;
+      backdrop-filter: blur(10px);
+      border: 1px solid #e8ecef;
+      border-radius: 20px;
+      box-shadow: 0 4px 20px rgba(0,0,0,0.08);
+      transition: all 0.3s ease;
+      overflow: hidden;
+    }
+    
+    .card:hover {
+      transform: translateY(-5px);
+      box-shadow: 0 8px 30px rgba(102, 126, 234, 0.15);
+    }
+    
+    .card-adherence {
+      text-align: center;
+      padding: 35px 25px;
+      background: linear-gradient(135deg, #667eea 0%, #764ba2 100%);
+      color: white;
+    }
+    
+    .card-adherence h5 {
+      font-weight: 600;
+      margin-bottom: 20px;
+      font-size: 1.1rem;
+      opacity: 0.95;
+    }
+    
+    .adherence-score {
+      font-size: 4rem;
+      font-weight: 800;
+      margin: 20px 0;
+      text-shadow: 0 4px 15px rgba(0,0,0,0.2);
+      background: linear-gradient(135deg, #ffeaa7, #fdcb6e);
+      -webkit-background-clip: text;
+      -webkit-text-fill-color: transparent;
+      background-clip: text;
+    }
+    
+    .card-adherence p {
+      opacity: 0.9;
+      margin-bottom: 20px;
+    }
+    
+    .btn-link {
+      color: white !important;
+      text-decoration: none;
+      font-weight: 600;
+      padding: 8px 20px;
+      background: rgba(255,255,255,0.2);
+      border-radius: 50px;
+      transition: all 0.3s ease;
+    }
+    
+    .btn-link:hover {
+      background: rgba(255,255,255,0.3);
+      transform: scale(1.05);
+    }
+    
+    .card-doses {
+      padding: 30px;
+    }
+    
+    .card-doses h5 {
+      margin-bottom: 8px;
+      font-weight: 700;
+      font-size: 1.3rem;
+      color: #2d3436;
+    }
+    
+    .card-doses h5 .bi {
+      color: #667eea;
+      margin-right: 8px;
+    }
+    
+    .text-muted {
+      color: #636e72 !important;
+      margin-bottom: 25px;
+    }
+    
+    .dose-item {
+      display: flex;
+      justify-content: space-between;
+      align-items: center;
+      padding: 18px 20px;
+      border-radius: 14px;
+      margin-bottom: 15px;
+      border: 2px solid #f0f0f0;
+      background: linear-gradient(135deg, #f8f9fa 0%, #ffffff 100%);
+      transition: all 0.3s ease;
+    }
+    
+    .dose-item:hover {
+      border-color: #667eea;
+      transform: translateX(5px);
+      box-shadow: 0 5px 20px rgba(102, 126, 234, 0.15);
+    }
+    
+    .dose-item strong {
+      color: #2d3436;
+      font-size: 1.05rem;
+      font-weight: 600;
+    }
+    
+    .dose-item .time {
+      color: #636e72;
+      font-size: 0.95rem;
+      margin-top: 4px;
+      display: flex;
+      align-items: center;
+      gap: 5px;
+    }
+    
+    .dose-actions {
+      display: flex;
+      gap: 8px;
+    }
+    
+    .badge {
+      padding: 8px 16px;
+      border-radius: 50px;
+      font-weight: 600;
+      cursor: pointer;
+      transition: all 0.3s ease;
+      border: none;
+      font-size: 0.85rem;
+    }
+    
+    .badge:hover {
+      transform: scale(1.08);
+    }
+    
+    .bg-success {
+      background: linear-gradient(135deg, #00b894, #00cec9) !important;
+      box-shadow: 0 4px 15px rgba(0, 184, 148, 0.3);
+    }
+    
+    .bg-danger {
+      background: linear-gradient(135deg, #ff7675, #d63031) !important;
+      box-shadow: 0 4px 15px rgba(255, 118, 117, 0.3);
+    }
+    
+    .row {
+      margin-bottom: 20px;
+    }
+
+    /* ✅ Mobile Responsive Fix */
+    @media (max-width: 767px) {
+      .dashboard-header {
+        flex-direction: column;
+        align-items: flex-start;
+      }
+
+      .dashboard-header h1 {
+        font-size: 2rem;
+      }
+
+      .dose-item {
+        flex-direction: column;
+        align-items: flex-start;
+        gap: 12px;
+        width: 100%;
+        padding: 16px;
+      }
+
+      .dose-actions {
+        display: flex;
+        flex-wrap: wrap;
+        width: 100%;
+        justify-content: space-between;
+        gap: 10px;
+      }
+
+      .dose-actions .badge {
+        flex: 1 1 48%;
+        text-align: center;
+        font-size: 0.9rem;
+        padding: 10px;
+      }
+
+      .dose-item strong {
+        font-size: 1rem;
+      }
+
+      .dose-item .time {
+        font-size: 0.9rem;
+      }
+    }
+    
+    @keyframes pulse {
+      0%, 100% {
+        opacity: 1;
+      }
+      50% {
+        opacity: 0.7;
+      }
+    }
+    
+    .pulse {
+      animation: pulse 2s ease-in-out infinite;
+    }
