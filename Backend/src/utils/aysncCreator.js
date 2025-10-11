@@ -8,14 +8,3 @@ const asyncCreator = (fn) => {
 export default asyncCreator;
 
 
-// const asyncCreator = async (fn)=>(req,res,next)=>{ // higher order fn
-//         try{
-//             await fn(req,res,next);
-//         }
-//         catch(err){
-//             res.status(err.code || 400).json({
-//                 success: false,
-//                 message: err.message,
-//             })
-//         }
-// }
