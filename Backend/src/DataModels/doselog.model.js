@@ -2,13 +2,17 @@ import mongoose from "mongoose";
 
 const doseLogSchema = new mongoose.Schema(
   {
-    medicine: { type: mongoose.Schema.Types.ObjectId, ref: "Medicine", required: true },
-    scheduledTime: { type: Date, required: true },
-    actualTime: { type: Date },
-    status: { type: String, enum: ["Taken", "Missed", "Pending"], required: true },
-    notes: { type: String },
+    user: { type: mongoose.Schema.Types.ObjectId, ref: "User", required: true },
+    medicationId: {
+      type: mongoose.Schema.Types.ObjectId,
+      ref: "Medication",
+      required: true,
+    },
+    date: { type: Date, required: true },
+    time: { type: String, required: true },
+    status: { type: String, enum: ["pending", "notified", "taken","missed"], default: "pending" },
   },
   { timestamps: true }
 );
 
-export const DoseLog = mongoose.model("DoseLog", doseLogSchema);
+export default mongoose.model("DoseLog", doseLogSchema);
